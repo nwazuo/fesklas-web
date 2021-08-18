@@ -79,6 +79,10 @@ const AppLayout = ({children}) => {
     }
   };
 
+  /* 
+    ** push user to signin page if not signed in
+    ** push user to dashboard if already logged in and trying to go back to the signin page
+  */
   useEffect(() => {
     if (!isLoadingUser) {
       if (!user && !isUnRestrictedRoute(router.pathname)) {

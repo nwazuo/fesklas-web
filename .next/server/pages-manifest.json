@@ -1,7 +1,0 @@
-{
-  "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
-  "/signin": "pages/signin.js",
-  "/main/dashboard/crm": "pages/main/dashboard/crm.js"
-}
