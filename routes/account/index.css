@@ -1,0 +1,5 @@
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 240px !important;
+  overflow: hidden;
+}

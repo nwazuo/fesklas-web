@@ -5,8 +5,14 @@ export const customerData = {
   email_address: 'adebisiosinachi@ngmail.com',
   is_verified: true,
   phone_no: '08086903848',
-  apartment_address: 'No. 34 Ikenegbu Street, Owerri, Imo State'
-}
+  apartment_address: 'No. 34 Ikenegbu Street, Owerri, Imo State',
+};
+
+export const verificationData = {
+  verified_address: 'No. 34 Ikenegbu Street, Owerri, Imo State',
+  verification_date: '24th February, 2021',
+  apartment_pictures: ['/images/apartment1.webp', '/images/apartment2.webp'],
+};
 
 export const subscriptionData = {
   is_subscribed: true,
