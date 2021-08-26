@@ -1,15 +1,15 @@
-import React, {useEffect} from "react";
-import {Layout} from "antd";
-import {useSelector} from "react-redux";
+import React, { useEffect } from 'react';
+import { Layout } from 'antd';
+import { useSelector } from 'react-redux';
 
-import Sidebar from "../Sidebar";
-import HorizontalDefault from "../Topbar/HorizontalDefault";
-import HorizontalDark from "../Topbar/HorizontalDark";
-import InsideHeader from "../Topbar/InsideHeader";
-import AboveHeader from "../Topbar/AboveHeader";
-import BelowHeader from "../Topbar/BelowHeader";
-import Topbar from "../Topbar";
-import {footerText} from "../../../util/config";
+import Sidebar from '../Sidebar';
+import HorizontalDefault from '../Topbar/HorizontalDefault';
+import HorizontalDark from '../Topbar/HorizontalDark';
+import InsideHeader from '../Topbar/InsideHeader';
+import AboveHeader from '../Topbar/AboveHeader';
+import BelowHeader from '../Topbar/BelowHeader';
+import Topbar from '../Topbar';
+import { footerText } from '../../../util/config';
 import {
   NAV_STYLE_ABOVE_HEADER,
   NAV_STYLE_BELOW_HEADER,
@@ -21,109 +21,108 @@ import {
   NAV_STYLE_MINI_SIDEBAR,
   NAV_STYLE_NO_HEADER_EXPANDED_SIDEBAR,
   NAV_STYLE_NO_HEADER_MINI_SIDEBAR,
-  THEME_TYPE_DARK
-} from "../../../constants/ThemeSetting";
-import NoHeaderNotification from "../Topbar/NoHeaderNotification";
-import Customizer from "../Customizer";
-import {useRouter} from "next/router";
-import {isUnRestrictedRoute, useAuth} from "../../../util/use-auth";
-import CircularProgress from "../../components/CircularProgress";
+  THEME_TYPE_DARK,
+} from '../../../constants/ThemeSetting';
+import NoHeaderNotification from '../Topbar/NoHeaderNotification';
+import Customizer from '../Customizer';
+import { useRouter } from 'next/router';
+import { isUnRestrictedRoute, useAuth } from '../../../util/use-auth';
+import CircularProgress from '../../components/CircularProgress';
 
-const {Content, Footer} = Layout;
+const { Content, Footer } = Layout;
 
-const AppLayout = ({children}) => {
-  const {themeType, navStyle} = useSelector(({settings}) => settings)
+const AppLayout = ({ children }) => {
+  const { themeType, navStyle } = useSelector(({ settings }) => settings);
   const router = useRouter();
-  const {user, isLoadingUser} = useAuth();
+  const { user, isLoadingUser } = useAuth();
 
   const getContainerClass = (navStyle) => {
     switch (navStyle) {
       case NAV_STYLE_DARK_HORIZONTAL:
-        return "gx-container-wrap";
+        return 'gx-container-wrap';
       case NAV_STYLE_DEFAULT_HORIZONTAL:
-        return "gx-container-wrap";
+        return 'gx-container-wrap';
       case NAV_STYLE_INSIDE_HEADER_HORIZONTAL:
-        return "gx-container-wrap";
+        return 'gx-container-wrap';
       case NAV_STYLE_BELOW_HEADER:
-        return "gx-container-wrap";
+        return 'gx-container-wrap';
       case NAV_STYLE_ABOVE_HEADER:
-        return "gx-container-wrap";
+        return 'gx-container-wrap';
       default:
         return '';
     }
   };
   const getNavStyles = (navStyle) => {
     switch (navStyle) {
-      case NAV_STYLE_DEFAULT_HORIZONTAL :
-        return <HorizontalDefault/>;
-      case NAV_STYLE_DARK_HORIZONTAL :
-        return <HorizontalDark/>;
-      case NAV_STYLE_INSIDE_HEADER_HORIZONTAL :
-        return <InsideHeader/>;
-      case NAV_STYLE_ABOVE_HEADER :
-        return <AboveHeader/>;
-      case NAV_STYLE_BELOW_HEADER :
-        return <BelowHeader/>;
-      case NAV_STYLE_FIXED :
-        return <Topbar/>;
-      case NAV_STYLE_DRAWER :
-        return <Topbar/>;
-      case NAV_STYLE_MINI_SIDEBAR :
-        return <Topbar/>;
-      case NAV_STYLE_NO_HEADER_MINI_SIDEBAR :
-        return <NoHeaderNotification/>;
-      case NAV_STYLE_NO_HEADER_EXPANDED_SIDEBAR :
-        return <NoHeaderNotification/>;
-      default :
+      case NAV_STYLE_DEFAULT_HORIZONTAL:
+        return <HorizontalDefault />;
+      case NAV_STYLE_DARK_HORIZONTAL:
+        return <HorizontalDark />;
+      case NAV_STYLE_INSIDE_HEADER_HORIZONTAL:
+        return <InsideHeader />;
+      case NAV_STYLE_ABOVE_HEADER:
+        return <AboveHeader />;
+      case NAV_STYLE_BELOW_HEADER:
+        return <BelowHeader />;
+      case NAV_STYLE_FIXED:
+        return <Topbar />;
+      case NAV_STYLE_DRAWER:
+        return <Topbar />;
+      case NAV_STYLE_MINI_SIDEBAR:
+        return <Topbar />;
+      case NAV_STYLE_NO_HEADER_MINI_SIDEBAR:
+        return <NoHeaderNotification />;
+      case NAV_STYLE_NO_HEADER_EXPANDED_SIDEBAR:
+        return <NoHeaderNotification />;
+      default:
         return null;
     }
   };
 
-  /* 
-    ** push user to signin page if not signed in
-    ** push user to dashboard if already logged in and trying to go back to the signin page
-  */
+  /*
+   ** push user to signin page if not signed in
+   ** push user to dashboard if already logged in and trying to go back to the signin page
+   */
   useEffect(() => {
     if (!isLoadingUser) {
       if (!user && !isUnRestrictedRoute(router.pathname)) {
-        router.push('/signin').then(r => r);
+        router.push('/signin').then((r) => r);
       } else if (user && isUnRestrictedRoute(router.pathname)) {
-        router.push('/main/dashboard/crm').then(r => r);
+        router.push('/dashboard').then((r) => r);
       }
     }
-  }, [user, isLoadingUser, router.pathname])
+  }, [user, isLoadingUser, router.pathname]);
 
-  let bodyClass = "";
+  let bodyClass = '';
   if (themeType === THEME_TYPE_DARK) {
-    bodyClass = "dark-theme"
+    bodyClass = 'dark-theme';
   }
 
   if (isLoadingUser) {
-    return <div className="gx-loader-view">
-      <CircularProgress/>
-    </div>;
+    return (
+      <div className="gx-loader-view">
+        <CircularProgress />
+      </div>
+    );
   }
 
-  return isUnRestrictedRoute(router.pathname) ? children : (
+  return isUnRestrictedRoute(router.pathname) ? (
+    children
+  ) : (
     <Layout className={`gx-app-layout ${bodyClass}`}>
-      <Sidebar/>
+      <Sidebar />
       <Layout>
         {getNavStyles(navStyle)}
         <Content className={`gx-layout-content ${getContainerClass(navStyle)}`}>
-          <div className="gx-main-content-wrapper">
-            {children}
-          </div>
+          <div className="gx-main-content-wrapper">{children}</div>
           <Footer>
-            <div className="gx-layout-footer-content">
-              {footerText}
-            </div>
+            <div className="gx-layout-footer-content">{footerText}</div>
           </Footer>
         </Content>
       </Layout>
-      <Customizer/>
+      <Customizer />
     </Layout>
   );
-}
+};
 
 export default AppLayout;
-

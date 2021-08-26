@@ -1,12 +1,12 @@
 import React from 'react';
-import SignInPage from "./signin";
-import {useAuth} from "../util/use-auth";
-import CrmDashboard from "./main/dashboard/crm";
+import SignInPage from './signin';
+import { useAuth } from '../util/use-auth';
+import Dashboard from './dashboard';
 
 const homePage = () => {
-  const {user} = useAuth();
+  const { user } = useAuth();
 
-  return user ? <CrmDashboard/> : <SignInPage/>;
-}
+  return user ? <Dashboard /> : <SignInPage />;
+};
 
 export default homePage;
