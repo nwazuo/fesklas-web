@@ -2,6 +2,8 @@ import React from 'react';
 import { Card, Row, Col, Carousel, Space, Typography, Divider } from 'antd';
 import { verificationData, customerData } from '../../public/data/data';
 
+import './index.css';
+
 const { Title, Text } = Typography;
 
 const { verification_date, verified_address } = verificationData;
