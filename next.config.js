@@ -1,6 +1,9 @@
 const withCSS = require('@zeit/next-css');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
 
-module.exports = withCSS({
+module.exports = withBundleAnalyzer(withCSS({
   webpack: function(config) {
     config.module.rules.push({
       test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
@@ -14,4 +17,4 @@ module.exports = withCSS({
     });
     return config;
   },
-});
+}));

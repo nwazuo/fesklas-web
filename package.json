@@ -1,11 +1,14 @@
 {
-  "name": "wieldt-nextjs",
+  "name": "fesklas-customer-platform",
   "version": "1.0.0",
   "scripts": {
     "dev": "node server/index.js",
     "build": "next build",
     "start": "next start",
-    "less": "lessc --js styles/wieldy.less styles/style.css"
+    "less": "lessc --js styles/wieldy.less styles/style.css",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
   },
   "dependencies": {
     "@amcharts/amcharts3-react": "^3.1.0",
@@ -30,6 +33,7 @@
     "compression": "^1.7.4",
     "connected-react-router": "^6.6.1",
     "cookie": "^0.4.1",
+    "cross-env": "^7.0.3",
     "d3-scale": "^3.2.1",
     "draftjs-to-html": "^0.9.1",
     "express": "^4.17.1",
