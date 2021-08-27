@@ -77,24 +77,7 @@ const SignIn = () => {
                 <a> <IntlMessages id="app.userAuth.signUp"/></a>
               </Link>
               </Form.Item>
-              <div className="gx-flex-row gx-justify-content-between">
-                <span>or connect with</span>
-                <ul className="gx-social-link">
-                  <li>
-                    <GoogleOutlined onClick={() => loginWithSocial()}/>
-                  </li>
-                  <li>
-                    <FacebookOutlined onClick={() => loginWithSocial('facebook')}/>
-                  </li>
-                  <li>
-                    <GithubOutlined onClick={() => loginWithSocial('github')}/>
-                  </li>
-                  <li>
-                    <TwitterOutlined onClick={() => loginWithSocial('twitter')}/>
-                  </li>
-                </ul>
-              </div>
-              <span
+                          <span
                 className="gx-text-light gx-fs-sm"> demo user email: 'demo@example.com' and password: 'demo#123'</span>
             </Form>
           </div>
