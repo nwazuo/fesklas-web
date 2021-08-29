@@ -1,8 +1,8 @@
-import React from 'react';
-import { Card, Row, Col, Carousel, Space, Typography, Divider } from 'antd';
-import { verificationData, customerData } from '../../public/data/data';
+import React from "react";
+import { Card, Row, Col, Carousel, Space, Typography, Divider } from "antd";
+import { verificationData, customerData } from "../../public/data/data";
 
-import './index.css';
+import "./index.css";
 
 const { Title, Text } = Typography;
 
