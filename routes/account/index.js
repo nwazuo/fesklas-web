@@ -1,9 +1,9 @@
-import React from 'react';
-import { Col, Row } from 'antd';
+import React from "react";
+import { Col, Row } from "antd";
 
-import './index.css';
-import AccountInfo from './AccountInfo';
-import VerificationDetails from './VerificationDetails';
+import "./index.css";
+import AccountInfo from "./AccountInfo";
+import VerificationDetails from "./VerificationDetails";
 
 const AccountView = () => (
   <>
