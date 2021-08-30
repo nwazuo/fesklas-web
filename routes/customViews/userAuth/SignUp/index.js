@@ -4,8 +4,11 @@ import Link from "next/link";
 import IntlMessages from "../../../../util/IntlMessages";
 import CircularProgress from "../../../../app/components/CircularProgress";
 import { useAuth } from "../../../../util/use-auth";
+<<<<<<< HEAD
 
 import "./index.css";
+=======
+>>>>>>> 3dadec4dd7a9f3909a0158967abb8d60e256058b
 
 const FormItem = Form.Item;
 
@@ -29,6 +32,10 @@ const SignUP = () => {
   };
 
   const handleRoleChange = (e) => {
+<<<<<<< HEAD
+=======
+    console.log(e.target.value);
+>>>>>>> 3dadec4dd7a9f3909a0158967abb8d60e256058b
     setRole(e.target.value);
   };
 
@@ -94,7 +101,10 @@ const SignUP = () => {
               </FormItem>
               <FormItem
                 name="email"
+<<<<<<< HEAD
                 label="Email"
+=======
+>>>>>>> 3dadec4dd7a9f3909a0158967abb8d60e256058b
                 rules={[
                   {
                     required: true,
@@ -180,9 +190,18 @@ const SignUP = () => {
                 ""
               )}
               <FormItem valuePropName="checked">
+<<<<<<< HEAD
                 <Checkbox>By signing up you agree to our </Checkbox>
                 <Link className="gx-login-form-forgot" href="#">
                   <a>Terms and Conditions</a>
+=======
+                <Checkbox>Remember me</Checkbox>
+                <Link
+                  className="gx-login-form-forgot"
+                  href="/custom-views/user-auth/forgot-password"
+                >
+                  <a>Forgot password</a>
+>>>>>>> 3dadec4dd7a9f3909a0158967abb8d60e256058b
                 </Link>
               </FormItem>
               <FormItem>
@@ -198,6 +217,30 @@ const SignUP = () => {
                   </a>
                 </Link>
               </FormItem>
+<<<<<<< HEAD
+=======
+              <div className="gx-flex-row gx-justify-content-between">
+                <span>or connect with</span>
+                <ul className="gx-social-link">
+                  <li>
+                    <GoogleOutlined onClick={() => loginWithSocial()} />
+                  </li>
+                  <li>
+                    <FacebookOutlined
+                      onClick={() => loginWithSocial("facebook")}
+                    />
+                  </li>
+                  <li>
+                    <GithubOutlined onClick={() => loginWithSocial("github")} />
+                  </li>
+                  <li>
+                    <TwitterOutlined
+                      onClick={() => loginWithSocial("twitter")}
+                    />
+                  </li>
+                </ul>
+              </div>
+>>>>>>> 3dadec4dd7a9f3909a0158967abb8d60e256058b
             </Form>
           </div>
           {isLoading && (
