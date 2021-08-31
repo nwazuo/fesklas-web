@@ -1,17 +1,15 @@
-export const customerData = {
-  first_name: 'Adebisi',
-  last_name: 'Osinachi',
-  UAID: 'u8399d',
-  email_address: 'adebisiosinachi@ngmail.com',
-  is_verified: true,
+export const employeeData = {
+  first_name: 'Onyemaechi',
+  last_name: 'Clementine',
+  email_address: 'onyeclem@ngmail.com',
+  employee_type: 'customer_agent',
   phone_no: '08086903848',
-  apartment_address: 'No. 34 Ikenegbu Street, Owerri, Imo State',
 };
 
-export const verificationData = {
-  verified_address: 'No. 34 Ikenegbu Street, Owerri, Imo State',
-  verification_date: '24th February, 2021',
-  apartment_pictures: ['/images/apartment1.webp', '/images/apartment2.webp'],
+export const employeeWorkData = {
+  unverified_customers: 22,
+  verified_customers: 5,
+  unreplied_feedback: 8
 };
 
 export const subscriptionData = {
